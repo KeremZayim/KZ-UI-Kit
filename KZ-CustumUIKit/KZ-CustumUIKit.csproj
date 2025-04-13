@@ -46,6 +46,9 @@
     <Compile Include="Controls\KZ_DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\KZ_Ellipse.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\KZ_RadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
