@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -13,7 +14,9 @@ namespace KZ_CustumUIKit.Controls
         private Color checkedColor = Color.MediumSlateBlue;
         private Color uncheckedColor = Color.Gray;
         private Color innerCircleColor = Color.White;
-        private int borderRadius = 10;
+
+        // Grup için statik liste
+        private static List<KZ_RadioButton> radioButtonGroup = new List<KZ_RadioButton>();
 
         // Yapıcı
         public KZ_RadioButton()
@@ -22,13 +25,37 @@ namespace KZ_CustumUIKit.Controls
             this.DoubleBuffered = true;
             this.Cursor = Cursors.Hand;
             this.Font = new Font("Segoe UI", 10, FontStyle.Regular); // Modern bir font
+
+            // Yeni buton ekleme
+            radioButtonGroup.Add(this);
         }
 
         [Category("KZ Appearance")]
         public bool Checked
         {
             get { return isChecked; }
-            set { isChecked = value; Invalidate(); }
+            set
+            {
+                if (isChecked != value)
+                {
+                    // Seçilen butonu işaretle
+                    isChecked = value;
+                    Invalidate();
+
+                    // Diğer butonları kontrol et, yalnızca bir tanesi seçili olabilir
+                    if (isChecked)
+                    {
+                        foreach (var radioButton in radioButtonGroup)
+                        {
+                            // Seçili olmayan tüm butonları işaretle
+                            if (radioButton != this)
+                            {
+                                radioButton.Checked = false;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         [Category("KZ Appearance")]
@@ -52,18 +79,16 @@ namespace KZ_CustumUIKit.Controls
             set { innerCircleColor = value; Invalidate(); }
         }
 
-        [Category("KZ Appearance")]
-        public int BorderRadius
-        {
-            get { return borderRadius; }
-            set { borderRadius = value; Invalidate(); }
-        }
-
         // Mouse tıklama olayı
         protected override void OnClick(EventArgs e)
         {
             base.OnClick(e);
-            Checked = !Checked;
+
+            // Eğer bu butona tıklanıyorsa seçili yap
+            if (!isChecked)
+            {
+                Checked = true; // Seçili yap
+            }
         }
 
         // Çizim işlemi
@@ -73,7 +98,7 @@ namespace KZ_CustumUIKit.Controls
             Graphics g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            // Dış çerçeve
+            // Dış çerçeve (yuvarlak)
             Rectangle outerRect = new Rectangle(0, 0, this.Height, this.Height); // Yuvarlak dış çerçeve
             using (SolidBrush brush = new SolidBrush(Checked ? checkedColor : uncheckedColor))
             {
@@ -85,26 +110,13 @@ namespace KZ_CustumUIKit.Controls
                 }
             }
 
-            // İç yuvarlak çerçeve
+            // İç yuvarlak çerçeve (daire)
             int innerRadius = this.Height - 8;
             int innerCircleX = Checked ? this.Width - innerRadius - 4 : 4;
 
             using (SolidBrush innerBrush = new SolidBrush(innerCircleColor))
             {
                 g.FillEllipse(innerBrush, innerCircleX, 4, innerRadius, innerRadius);
-            }
-
-            // Metni sağ tarafa hizala, dikeyde ortala
-            using (Brush textBrush = new SolidBrush(this.ForeColor))
-            {
-                string text = this.Text;
-                if (!string.IsNullOrEmpty(text))
-                {
-                    SizeF textSize = g.MeasureString(text, this.Font);
-                    float textX = this.Height + 4; // Butonun sağ tarafına yerleştiriyoruz
-                    float textY = (this.Height - textSize.Height) / 2; // Dikeyde ortalıyoruz
-                    g.DrawString(text, this.Font, textBrush, textX, textY);
-                }
             }
         }
 
