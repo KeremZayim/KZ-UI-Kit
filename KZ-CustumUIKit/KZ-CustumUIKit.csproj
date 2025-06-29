@@ -57,6 +57,15 @@
     <Compile Include="Controls\KZ_GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\KZ_ListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\KZ_ListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\KZ_ProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\KZ_RadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -67,6 +76,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\KZ_TrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\KZ_UserCard.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
