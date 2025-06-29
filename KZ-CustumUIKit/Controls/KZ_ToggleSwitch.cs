@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace KZ_CustumUIKit.Controls
 {
+    [ToolboxItem(true)]
+    [Description("Açık/Kapalı durumlarını görsel bir anahtar şeklinde temsil eden özel toggle switch bileşeni.")]
+    [ProvideProperty("KZ ToggleSwitch", typeof(Control))]
+
     public class KZ_ToggleSwitch : Control
     {
         // Özellikler

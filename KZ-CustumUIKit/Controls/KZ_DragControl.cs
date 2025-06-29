@@ -5,7 +5,9 @@ using System.Windows.Forms;
 
 namespace KZ_CustumUIKit.Controls
 {
-    [ProvideProperty("KZ TargetControl", typeof(Control))]
+    [ToolboxItem(true)]
+    [ProvideProperty("KZ DragControl", typeof(Control))]
+    [Description("Seçilen kontrolün sürüklenerek taşınmasına olanak tanıyan yardımcı bir bileşen.")]
     public class KZ_DragControl : Component
     {
         private Control targetControl;

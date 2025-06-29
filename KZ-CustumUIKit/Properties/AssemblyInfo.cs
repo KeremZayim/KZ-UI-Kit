@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("KZ-CustumUIKit")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET Framework Custom Control Kit")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyCompany("Kerem Zayim")]
 [assembly: AssemblyProduct("KZ-CustumUIKit")]
-[assembly: AssemblyCopyright("Copyright © HP 2025")]
+[assembly: AssemblyCopyright("Copyright © Kerem Zayim 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

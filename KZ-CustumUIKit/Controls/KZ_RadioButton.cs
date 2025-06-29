@@ -7,6 +7,10 @@ using System.Windows.Forms;
 
 namespace KZ_CustumUIKit.Controls
 {
+    [ToolboxItem(true)]
+    [ProvideProperty("KZ RadioButton", typeof(Control))]
+    [Description("Modern tasarım ve stil seçenekleri sunan özel bir radio button kontrolü.")]
+
     public class KZ_RadioButton : Control
     {
         // Özellikler

@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace KZ_CustumUIKit.Controls
 {
+    [ToolboxItem(true)]
+    [ProvideProperty("KZ Ellipse", typeof(Control))]
+    [Description("Köşeleri eliptik hale getirerek kontrolün kenarlarını yumuşatan görsel yardımcı bileşen.")]
+
     public class KZ_RadiusControl : Component
     {
         // Özellikler

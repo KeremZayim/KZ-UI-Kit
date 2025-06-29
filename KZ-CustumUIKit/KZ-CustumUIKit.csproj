@@ -33,7 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,22 +45,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\KZ_CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\KZ_DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\KZ_Ellipse.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\KZ_GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\KZ_RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\KZ_TextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\KZ_ToggleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\KZ_TrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CustomUIControls.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
